@@ -46,6 +46,7 @@
   </div>
 </template>
 <script>
+let flag
 export default {
   data() {
     return {
@@ -56,33 +57,28 @@ export default {
         { name: 'Tom', age: '19', sex: '男' },
         { name: 'Jone', age: '21', sex: '女' },
         { name: 'Kevin', age: '22', sex: '男' },
-      ],
-      findIndex:null,
+      ]
     }
   },
   methods: {
     add() {
         if (this.name.length == 0 || this.age.length == 0 ||this.sex=='') {
         return alert('请输入完整信息')
-        }
-      const asset = { name: this.name, age: this.age, sex: this.sex }
-      if (this.findIndex !== null) {
-        this.$set(this.arr, this.findIndex, asset)
-        this.findIndex=null
-      } else {
-        this.arr.push(asset)
       }
+      const asset = { name: this.name, age: this.age, sex: this.sex }
+      this.arr.push(asset)
       this.name=''
       this.age=''
       this.sex = ''
+      flag=false
 
     },
     edit(index) {
+      flag=true
       this.name=this.arr[index].name
       this.age=this.arr[index].age
       this.sex = this.arr[index].sex
-      this.findIndex = index
-
+      const newAsset = { name: this.name, age: this.age, sex: this.sex }
 
     },
     del(index) {

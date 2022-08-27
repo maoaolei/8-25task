@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import myPannel from '@/components/myPannel.vue'
+import myPannel from '@/components/myPannel.vue'
 //(组件名字：组件对象)
-// Vue.component('myPannel',myPannel)
+Vue.component('myPannel',myPannel)
 
 Vue.config.productionTip = false
 
